@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Korean Practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600&family=Noto+Serif+KR:wght@600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<h1>한국어 연습</h1>
+<p id="prog"></p>
+<div class="row" id="lv" aria-label="Level"></div>
+<div class="row" id="md" aria-label="Mode"></div>
+<div id="main"></div>
+</div>
+<script>
+/* Shows a clear message instead of a blank page if a file is missing */
+var miss=[];
+addEventListener('error',function(e){var t=e.target,m=document.getElementById('main'),s=t&&t.getAttribute&&t.getAttribute('src');if(!m)return;
+if(s){miss.push(s);m.setAttribute('data-err','1');m.innerHTML='<div class="g"><h3>Something did not load</h3><p>Not found: <b>'+miss.join(', ')+'</b>. Upload these files to your repository next to index.html, and keep the <b>data</b> folder with its 3 files inside.</p></div>';return}
+if(!m.getAttribute('data-err'))m.innerHTML='<div class="g"><h3>Something went wrong</h3><p>'+(e.message||'Check that all files are uploaded next to index.html, with the data folder.')+'</p></div>'},true);
+</script>
+<script src="data/levels.js"></script>
+<script src="data/categories.js"></script>
+<script src="data/examples.js"></script>
+<script src="data/cloud-config.js"></script>
+<script src="cloud-sync.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
